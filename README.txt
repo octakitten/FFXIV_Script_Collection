@@ -14,4 +14,4 @@ PC users by other third-party tools (such as many of the plugins for Dalamud, wh
 
 No warranty of usefulness or safety is provided with these files, and you will need to follow the instructions provided in the INSTRUCTIONS.TXT file in order to set up and use these
 utilities properly. Moreover, you may find that they do not suit your needs even after following the instructions. I accept commissions to modify these scripts and/or develop other scripting 
-utilities for your personal needs over on Gumroad at 
+utilities for your personal needs over on Gumroad at (Coming Soon)
