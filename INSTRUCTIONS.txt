@@ -1,0 +1,46 @@
+Hi there! So you play a healer in Final Fantasy XIV Online, right? And you'd like to be able to use mouseover macros in combat, but can't because of the game's limitations, right?
+These scripting utilities I've collected here allow for healers to use mouseover macros to heal and provide buffs, 
+as well as use timers and notification windows to track your DOT and DPS Cooldown.
+
+Here's how to use these files:
+
+1) Install AutoHotKey. This is a utility for Windows PCs only, so Linux and Mac users won't be able to use these files. You can install AutoHotKey from this link:
+https://www.autohotkey.com/
+
+2a) You will need to change your FFXIV character's ingame keybindings to the ones used in these scripts. I've provided sample "HOTBAR.DAT" and "KEYBIND.DAT" files for you if you 
+don't mind using my character's hotbar and keybinding setup. Just copy and paste those two files from the "keybinds_hotbars_setup" folder here into the following file folder
+C:\Users\[your_username_here]\Documents\My Games\FINAL FANTASY XIV - A Realm Reborn\FFXIV_CHR[some_numbers_here]
+If you have multiple characters you may need to figure out which folder contains your main character's ui files. This will probably
+be the folder that has been most recently modified. 
+
+If you'd rather change your hotbars manually so as not to mess up your non-healer jobs and etc., continue to part 2b.
+
+2b) I'll provide a list of the keybindings you need to use here. Just change your actions around on your hotbars so that they line up with these keybinds and 
+things should work:
+
+White Mage:
+
+Attacks:
+1 - Glare
+2 - Dia
+4 - Afflatus Misery
+5 - Presence of Mind
+
+Mouseover spells:
+3 - Regen
+Shift+1 - Cure 1
+Shift+2 - Cure 2
+Shift+3 - Cure 3
+Shift+4 - Tetragrammaton
+Shift+5 - Divine Benison
+Shift+E - Afflatus Solace
+R - aquaveil
+Shift+C - Benediction
+F - Rescue
+Shift+F - Esuna
+V - Raise
+
+3) Once you have AutoHotKey installed and your keybinds set up for the script to work, simply run the "whm_keybinds.ahk" file by double clicking
+and it will run in the background. You can close it by pressing Shift+F1, as it will interferre with your normal typing sometimes. 
+After that, have fun!
+
