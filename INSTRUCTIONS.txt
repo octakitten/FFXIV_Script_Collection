@@ -18,27 +18,88 @@ If you'd rather change your hotbars manually so as not to mess up your non-heale
 2b) I'll provide a list of the keybindings you need to use here. Just change your actions around on your hotbars so that they line up with these keybinds and 
 things should work:
 
+Macros (found in the "ingame_macros" folder):
+Mouseover: ctrl+7
+Target nearest enemy: ctrl+8
+
+PVP WHM only:
+assist_ally_3: f
+assist_enemy_3: shift+f
+
+----------
 White Mage:
+---------
 
 Attacks:
-1 - Glare
-2 - Dia
-4 - Afflatus Misery
-5 - Presence of Mind
+1, 2, 4, 5
 
 Mouseover spells:
-3 - Regen
-Shift+1 - Cure 1
-Shift+2 - Cure 2
-Shift+3 - Cure 3
-Shift+4 - Tetragrammaton
-Shift+5 - Divine Benison
-Shift+E - Afflatus Solace
-R - aquaveil
-Shift+C - Benediction
-F - Rescue
-Shift+F - Esuna
-V - Raise
+3,
+Shift+1,
+Shift+2,
+Shift+3,
+Shift+4,
+Shift+5,
+Shift+E,
+R,
+Shift+C,
+F,
+Shift+F,
+V
+
+---------
+Astrologian:
+---------
+
+Attacks:
+1, 2, 4, 5, b
+
+Mouseover spells:
+3, e, t, shift+1, shift+2, shift+3, shift+4, 
+shift+5, shift+6, f, shift+f, shift+c, v
+
+---------
+Scholar:
+---------
+
+Attacks:
+1, 2, 3, 4, 5
+
+Mouseovers spells:
+Shift+(1 - 5)
+t, r, f, shift+f
+v, shift+c
+
+---------
+Sage:
+---------
+
+Attacks:
+1, 4, 5
+
+Mouseover spells:
+2, 3, q
+Shift+(1-5)
+r, shift+r, f, shift+f
+v, shift+c
+
+---------
+White Mage PvP:
+---------
+
+Auto attacks:
+Ctrl+(1-4)
+
+Mouseover spells:
+1-4, e, q, c, v
+
+Assist enemy 3:
+e, q
+
+Assist ally 3:
+shift+ (1-4), c, v
+
+
 
 3) Once you have AutoHotKey installed and your keybinds set up for the script to work, simply run the "whm_keybinds.ahk" file by double clicking
 and it will run in the background. You can close it by pressing Shift+F1, as it will interferre with your normal typing sometimes. 
