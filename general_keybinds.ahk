@@ -121,9 +121,12 @@ class keybinds() {
         while (!FileReadLine(file, line)) {
             if (line = "") {
                 continue
-         }
+            }
+            if (line = "end") {
+                break
+            }
             if (line = "keybinds_array_01") {
-            array_name := "keybinds_array_01"
+                array_name := "keybinds_array_01"
                 continue
             }
             if (line = "keybinds_array_02") {
@@ -186,6 +189,7 @@ class keybinds() {
         for (i, 1, keybinds_array_04.count) {
             FileWriteLine(file, keybinds_array_04[i])
         }
+        FileWriteLine(file, "end")
         FileClose(file)
 
     }
