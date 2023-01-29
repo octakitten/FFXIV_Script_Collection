@@ -1,11 +1,12 @@
-keybinds_array_01
+keybinds_array
 ^8
 1
 2
 3
 4
 5
-keybinds_array_02
+done
+keybinds_array
 ^7
 +1
 +2
@@ -22,6 +23,5 @@ v
 +v
 f
 +f
-keybinds_array_03
-keybinds_array_04
+done
 end
