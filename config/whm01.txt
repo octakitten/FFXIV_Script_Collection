@@ -2,11 +2,11 @@ keybinds_array
 ^8
 1
 2
+3
 4
 done
 keybinds_array
 ^7
-3
 +1
 +2
 +3

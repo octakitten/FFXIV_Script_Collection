@@ -8,8 +8,11 @@ class keybinds {
 
     config_file_name := "default"
     num_keybind_arrays := 2
-    init_keybinder_array := ["1"]
-    keybinder := [this.init_keybinder_array]
+    keybinder := []
+
+    __New() {
+        this.read_config(this.config_file_name)
+    }
 
     set_config_file_name(file_name) {
         ; make sure we got a string in the file_name variable first
@@ -110,7 +113,8 @@ class keybinds {
 
         array_holder := []
         line := ""
-        while (!file.ReadLine(line)) {
+        Loop {
+            line := file.ReadLine()
             if (line = "") {
                 continue
             }
@@ -118,7 +122,7 @@ class keybinds {
                 break
             }
             if (line = "done") {
-                this.keybinder := this.keybinder . array_holder
+                this.keybinder.Push(array_holder)
                 continue
             }
             if (line = "keybinds_array") {
@@ -126,7 +130,7 @@ class keybinds {
                 continue
             }
             else {
-                array_holder := array_holder . line
+                array_holder.Push(line)
             }
         file.Close()
         }
@@ -155,11 +159,13 @@ class keybinds {
         ; starts with keybinds_array, then each line is a keybind until it reads done
         ; then the next array starts with the next keybinds_array_
 
-        for i in this.keybinder {
-            file.WriteLine("keybinds_array")
-            for j in this.keybinder[i] {
-                file.WriteLine(this.keybinder[i][j])
-            }
+        if (this.keybinder.Length > 1)
+            for i in this.keybinder {
+                file.WriteLine("keybinds_array")
+                if (this.keybinder[i].Length > 1)
+                    for j in this.keybinder[i] {
+                        file.WriteLine(this.keybinder[i][j])
+                    }
             file.WriteLine("done")
         }
         file.WriteLine("end")
