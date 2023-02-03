@@ -1,21 +1,21 @@
 ; Copyright (c) 2023 Rassyberry
-#SingleInstance, Force
-SendMode Input
-SetWorkingDir, %A_ScriptDir%
-SetKeyDelay,,1
+#Requires AutoHotkey v2-b+
+#SingleInstance
+SetWorkingDir(A_ScriptDir)
 
 
-Class keybinds {
+class keybinds {
 
     config_file_name := "default"
     num_keybind_arrays := 2
-    keybinder := []
+    init_keybinder_array := ["1"]
+    keybinder := [this.init_keybinder_array]
 
     set_config_file_name(file_name) {
         ; make sure we got a string in the file_name variable first
         if (!file_name.isstring) {
             ; throw an error message here if its not a string
-            MsgBox, 0, Error, "set_config_file_name() requires a string as the first input"
+            MsgBox(0, Error, "set_config_file_name() requires a string as the first input")
             return
         }
         config_file_name := file_name
@@ -26,7 +26,7 @@ Class keybinds {
         ; make sure we got a number in the n variable first
         if (!n.isnumber) {
             ; throw an error message here if its not a number
-            MsgBox, 0, Error, "set_num_keybind_arrays() requires a number as the first input"
+            MsgBox( 0, Error, "set_num_keybind_arrays() requires a number as the first input")
             return
         }
         num_keybind_arrays := n
@@ -47,12 +47,12 @@ Class keybinds {
         ; this array holds each of the arrays that each hold the keybinds for each keybind group
         ; we'll use this array to loop through each of the keybind groups and assign the keybinds
 
-        #UseHook, True
-        if (keybinder.count > 1) {
-            Loop, keybinder.MaxIndex() {
-                if (keybinder[A_Index].count > 1) {
-                    Loop, keybinder[A_Index].MaxIndex() {
-                        Hotkey, % keybinder[A_Index][A_Index], keybinds.kb_actions(keybinder[A_Index][1], keybinder[A_Index][A_Index]), On
+        #UseHook True
+        if (this.keybinder.Length > 1) {
+            for i in this.keybinder {
+                if (this.keybinder[i].Length > 1) {
+                    for j in this.keybinder[i] {
+                        Hotkey( this.keybinder[i][j], this.kb_actions(this.keybinder[i][1], this.keybinder[i][j]), "On")
                     }
                 }
             }
@@ -74,12 +74,12 @@ Class keybinds {
         ; this array holds each of the arrays that each hold the keybinds for each keybind group
         ; we'll loop through this array to turn off all the keybinds it contains
 
-        #UseHook, True
-        if (keybinder.count > 1) {
-            Loop, keybinder.MaxIndex() {
-                if (keybinder[A_Index].count > 1) {
-                    Loop, keybinder[A_Index].MaxIndex() {
-                        Hotkey, % keybinder[A_Index][A_Index], Off
+        #UseHook True
+        if (this.keybinder.Length > 1) {
+            for i in this.keybinder {
+                if (this.keybinder[i].Length > 1) {
+                    for j in this.keybinder[i] {
+                        Hotkey(this.keybinder[i][j], "Off")
                     }
                 }
             }
@@ -100,16 +100,17 @@ Class keybinds {
     ; the keybinds are stored in the arrays in the order they are read from the file
     ; those arrays are then stored in the keybinder array
 
-        keybinder := []
+        this.keybinder := []
         file := "config/" file ".txt"
-        file := File.Open(file, "r")
+        file := FileOpen(file, "r")
         if (file = 0) {
-            MsgBox, 0, Error, "Could not open file"
+            MsgBox( 0, Error, "Could not open file")
             Return
         }
 
         array_holder := []
-        while (!File.ReadLine(file, line)) {
+        line := ""
+        while (!file.ReadLine(line)) {
             if (line = "") {
                 continue
             }
@@ -117,7 +118,7 @@ Class keybinds {
                 break
             }
             if (line = "done") {
-                keybinder := keybinder . array_holder
+                this.keybinder := this.keybinder . array_holder
                 continue
             }
             if (line = "keybinds_array") {
@@ -127,7 +128,7 @@ Class keybinds {
             else {
                 array_holder := array_holder . line
             }
-        File.Close(file)
+        file.Close()
         }
         Return
     }
@@ -142,9 +143,9 @@ Class keybinds {
     ; the keybinds are just a string that represents the hotkey it will be used for
 
         file := "config/" file ".txt"
-        file := File.Open(file, "w")
+        file := FileOpen(file, "w")
         if (file = 0) {
-            MsgBox, 0, Error, "Could not open file"
+            MsgBox( 0, Error, "Could not open file")
             Return
         }
 
@@ -154,22 +155,22 @@ Class keybinds {
         ; starts with keybinds_array, then each line is a keybind until it reads done
         ; then the next array starts with the next keybinds_array_
 
-        for i, b in keybinder {
-            File.WriteLine(file, "keybinds_array")
-            for j, b in keybinder[i] {
-                File.WriteLine(file, keybinder[i][j])
+        for i in this.keybinder {
+            file.WriteLine("keybinds_array")
+            for j in this.keybinder[i] {
+                file.WriteLine(this.keybinder[i][j])
             }
-            File.WriteLine(file, "done")
+            file.WriteLine("done")
         }
-        File.WriteLine(file, "end")
-        File.Close(file)
+        file.WriteLine("end")
+        file.Close()
         Return
     }
 
     kb_actions(kb1, kb2) {
-        Send, %kb1%
-        Sleep 10
-        Send, %kb2%
+        Send(kb1)
+        Sleep(10)
+        Send(kb2)
         Return
     }
 
@@ -191,11 +192,11 @@ Class keybinds {
 
 
 
-        keybinds.store_config(config_file_name)
-        keybinds.turn_off_keybinds()
-        keybinds.set_config_file_name(file_name)
-        keybinds.read_config(config_file_name)
-        keybinds.assign_keybinds()
+        this.store_config(this.config_file_name)
+        this.turn_off_keybinds()
+        this.set_config_file_name(file_name)
+        this.read_config(this.config_file_name)
+        this.assign_keybinds()
         Return
     }
 
