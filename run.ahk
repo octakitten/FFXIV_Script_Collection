@@ -2,6 +2,7 @@
 #SingleInstance
 SetWorkingDir(A_ScriptDir)
 #Include keybinds.ahk
+#Warn
 
 ; Start by setting up a gui that will guide the user on 
 ; picking which keybinds to use from the available ones in the
@@ -17,7 +18,7 @@ Loop Files, "config\*.txt"
 }
 
 
-KBChooser := Gui("+ToolWindow +E0x00000000", "Keybind Chooser")
+KBChooser := Gui("+AlwaysOnTop +ToolWindow +E0x00000000", "Keybind Chooser")
 KBChooser_Text := KBChooser.Add("Text", "x10 y10 w200 h20", "Select your keybinds")
 KBChooser_Keybinds := KBChooser.Add("ListBox", "x10 y40 w200 h200", keybinds_box_list)
 KBChooser_OK := KBChooser.Add("Button", "x10 y250 w200 h20", "OK")
