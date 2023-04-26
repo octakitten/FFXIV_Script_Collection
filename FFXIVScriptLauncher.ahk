@@ -4,7 +4,7 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-SetKeyDelay,,1'
+SetKeyDelay,,1
 
 whm := "whm_keybinds.ahk"
 ast := "ast_keybinds.ahk"
@@ -74,7 +74,7 @@ return
 if (!sch_running)
 {
 	Run, %sch%,,, pid1
-	schPID := True
+	sch_running := True
 	messages := "Sch started"
 	GuiControl, box1:Text, textbox, %messages%
 	GuiControl, box1:MoveDraw, textbox

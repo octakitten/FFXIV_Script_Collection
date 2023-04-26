@@ -15,31 +15,31 @@ target_mouseover = ^7
 ; default is for ^8
 
 $1::
-Send, %target_nearest%
+Send, %target_mouseover%
 Sleep 10
 Send, 1
 return
 
 $2::
-Send, %target_nearest%
+Send, %target_mouseover%
 Sleep 10
 Send, 2
 return
 
 $3::
-Send, %target_nearest%
+Send, %target_mouseover%
 Sleep 10
 Send, 3
 return
 
 $4::
-Send, %target_nearest%
+Send, %target_mouseover%
 Sleep 10
 Send, 4
 return
 
 $5::
-Send, %target_nearest%
+Send, %target_mouseover%
 Sleep 10
 Send, 5
 return
@@ -48,31 +48,31 @@ return
 ; default keybind for them is ^7
 
 $+1::
-Send, %target_mouseover%
+Send, %target_nearest%
 Sleep 10
 Send, +1
 return
 
 $+2::
-Send, %target_mouseover%
+Send, %target_nearest%
 Sleep 10
 Send, +2
 return
 
 $+3::
-Send, %target_mouseover%
+Send, %target_nearest%
 Sleep 10
 Send, +3
 return
 
 $+4::
-Send, %target_mouseover%
+Send, %target_nearest%
 Sleep 10
 Send, +4
 return
 
 $+5::
-Send, %target_mouseover%
+Send, %target_nearest%
 Sleep 10
 Send, +5
 return
@@ -87,6 +87,12 @@ $r::
 Send, %target_mouseover%
 Sleep 10
 Send, r
+return
+
+$+r::
+Send, %target_mouseover%
+Sleep 10
+Send, +r
 return
 
 $f::
@@ -112,3 +118,23 @@ Send, %target_mouseover%
 Sleep 10
 Send, +c
 return
+
+$b::
+Send, %target_nearest%
+Sleep 10
+Send, b
+return
+
+$+b::
+Send, %target_nearest%
+Sleep 10
+Send, +b
+return
+
+$^b::
+Send, %target_nearest%
+Sleep 10
+Send, ^b
+return
+
+

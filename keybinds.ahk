@@ -6,7 +6,7 @@ SetWorkingDir(A_ScriptDir)
 
 class keybinds {
 
-    config_file_name := "default"
+    config_file_name := "sch01"
     num_keybind_arrays := 2
     keybinder := []
 
@@ -16,7 +16,7 @@ class keybinds {
 
     set_config_file_name(file_name) {
         ; make sure we got a string in the file_name variable first
-        if (!file_name.isstring) {
+        if (!True) {
             ; throw an error message here if its not a string
             MsgBox(0, Error, "set_config_file_name() requires a string as the first input")
             return
