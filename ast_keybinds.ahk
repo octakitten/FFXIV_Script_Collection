@@ -11,10 +11,10 @@ SetKeyDelay,,1
 
 target_nearest = ^8
 target_mouseover = ^7
-target_m1 = "{F5}"
-target_m2 = "{F6}"
-target_r1 = "{F7}"
-target_r2 = "{F8}"
+target_m1 = +7
+target_m2 = +8
+target_r1 = +9
+target_r2 = +0
 
 
 ~+F2::ExitApp
@@ -32,6 +32,12 @@ $2::
 Send, %target_nearest%
 Sleep 10
 Send, 2
+return
+
+$3::
+Send, %target_nearest%
+Sleep 10
+Send, 3
 return
 
 $4::
@@ -54,12 +60,6 @@ return
 
 ; mouseover spells, use these at the mouseover target
 ; default keybind for that is ^7
-
-$3::
-Send, %target_mouseover%
-Sleep 10
-Send, 3
-return
 
 $+1::
 Send, %target_mouseover%
