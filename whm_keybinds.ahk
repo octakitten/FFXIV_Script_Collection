@@ -165,6 +165,6 @@ rescuefn() {
 esunafn() {
     Send, %target_mouseover%
     Sleep 10
-    Send, %glare%
+    Send, %esuna%
     return
 }
